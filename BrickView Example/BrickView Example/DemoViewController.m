@@ -130,4 +130,9 @@
         [self.brickView updateData];
     }
 }
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    NSLog(@"end dragging");
+}
 @end
