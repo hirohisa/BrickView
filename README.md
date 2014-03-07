@@ -1,4 +1,4 @@
-BrickView
+BrickView [![Build Status](https://travis-ci.org/hirohisa/BrickView.png?branch=master)](https://travis-ci.org/hirohisa/BrickView) 
 ==================
 BrickView is a simple dynamic grid layout view for iOS like Pinterest.
 usage of BrickView is like UITableViewDelegate and UITableViewDatasource.
