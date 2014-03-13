@@ -88,7 +88,9 @@
         .size.width = brickView.widthOfCell,
         .size.height = [brickView.delegate brickView:brickView heightForCellAtIndex:index]
     };
-    label.text = self.list[index];
+    label.text = [NSString stringWithFormat:@"%d:%@",
+                  index,
+                  self.list[index]];
     label.textAlignment = NSTextAlignmentCenter;
     switch (index%3) {
         case 0: {
