@@ -9,6 +9,38 @@
 #import "DemoViewController.h"
 #import "BrickView.h"
 
+@interface DemoBrickViewCell : BrickViewCell
+
+@property (nonatomic, readonly) UILabel *textLabel;
+
+@end
+
+@implementation DemoBrickViewCell
+
+- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithReuseIdentifier:reuseIdentifier];
+    if (self) {
+        _textLabel = [[UILabel alloc] init];
+        self.textLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:self.textLabel];
+    }
+    return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.textLabel.frame = (CGRect) {
+        .origin.x = 0.,
+        .origin.y = 0.,
+        .size.width = CGRectGetWidth(self.frame),
+        .size.height = CGRectGetHeight(self.frame)
+    };
+}
+
+@end
+
 @interface DemoViewController () <BrickViewDataSource, BrickViewDelegate>
 @property (nonatomic, strong) BrickView *brickView;
 @property (nonatomic, strong) NSMutableArray *list;
@@ -72,26 +104,14 @@
 - (BrickViewCell *)brickView:(BrickView *)brickView cellAtIndex:(NSInteger)index
 {
     static NSString *CellIdentifier = @"Cell";
-	BrickViewCell *cell = [brickView dequeueReusableCellWithIdentifier:CellIdentifier];
+	DemoBrickViewCell *cell = [brickView dequeueReusableCellWithIdentifier:CellIdentifier];
 
 	if(!cell) {
-        cell  = [[BrickViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
-        label.tag = 1001;
-        [cell addSubview:label];
+        cell  = [[DemoBrickViewCell alloc] initWithReuseIdentifier:CellIdentifier];
 	}
-
-    UILabel *label = (UILabel *)[cell viewWithTag:1001];
-    label.frame = (CGRect) {
-        .origin.x = 0.,
-        .origin.y = 0.,
-        .size.width = brickView.widthOfCell,
-        .size.height = [brickView.delegate brickView:brickView heightForCellAtIndex:index]
-    };
-    label.text = [NSString stringWithFormat:@"%d:%@",
-                  index,
-                  self.list[index]];
-    label.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.text = [NSString stringWithFormat:@"%d:%@",
+                           index,
+                           self.list[index]];
     switch (index%3) {
         case 0: {
             cell.backgroundColor = [UIColor grayColor];
