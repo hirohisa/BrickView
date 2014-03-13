@@ -111,9 +111,10 @@
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
-    if(self = [super init]) {
+    self = [super init];
+    if(self) {
 		self.reuseIdentifier = reuseIdentifier;
-        [self setup];
+        [self brick_initialize];
 	}
 	return self;
 }
@@ -135,9 +136,8 @@
 
 #pragma mark -
 
-- (void)setup
+- (void)brick_initialize
 {
-    self.touching = NO;
     UILongPressGestureRecognizer *longPressGesture =
     [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     [self addGestureRecognizer:longPressGesture];
@@ -200,6 +200,15 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
+    if (self) {
+        [self brick_configure];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
     if (self) {
         [self brick_configure];
     }

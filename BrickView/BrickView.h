@@ -33,13 +33,13 @@
 
 @end
 
-@interface BrickViewCell : UIView
+@interface BrickViewCell : UIView <NSCoding>
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
 
 @end
 
-@interface BrickView : UIScrollView
+@interface BrickView : UIScrollView <NSCoding>
 
 @property (nonatomic, assign) id<BrickViewDataSource> dataSource;
 @property (nonatomic, assign) id<BrickViewDelegate> delegate;
