@@ -95,10 +95,7 @@
 
 @end
 
-@interface BrickViewCell () {
-    @private
-    NSNumber *_number;
-}
+@interface BrickViewCell ()
 
 @property (nonatomic, assign) id<BrickViewCellDelegate> delegate;
 @property (nonatomic) NSInteger brickIndex;
@@ -113,31 +110,17 @@
 {
     self = [super init];
     if(self) {
-		self.reuseIdentifier = reuseIdentifier;
+        self.reuseIdentifier = reuseIdentifier;
         [self brick_initialize];
 	}
 	return self;
-}
-
-#pragma mark - accessor
-
-- (void)setBrickIndex:(NSInteger)brickIndex
-{
-    _number = @(brickIndex);
-}
-
-- (NSInteger)brickIndex
-{
-    if (_number) {
-        return [_number integerValue];
-    }
-    return NSNotFound;
 }
 
 #pragma mark -
 
 - (void)brick_initialize
 {
+    self.brickIndex = NSNotFound;
     UILongPressGestureRecognizer *longPressGesture =
     [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
     [self addGestureRecognizer:longPressGesture];
@@ -169,12 +152,6 @@
         self.touching = NO;
         [self.delegate didSelectCell:self];
     }
-}
-
-- (void)dealloc
-{
-    _number = nil;
-    self.reuseIdentifier = nil;
 }
 
 @end
