@@ -10,11 +10,14 @@
 
 
 @interface NSArray (BrickView)
+
 - (NSInteger)compareLeastIndex;
 - (NSInteger)compareGreatestIndex;
+
 @end
 
 @implementation NSArray (BrickView)
+
 - (NSInteger)compareLeastIndex
 {
     id criteria = nil;
@@ -44,9 +47,11 @@
     }
     return index;
 }
+
 @end
 
 @interface BrickIndexPath : NSObject
+
 @property (nonatomic, readonly) NSUInteger index;
 @property (nonatomic, readonly) NSUInteger column;
 @property (nonatomic, readonly) CGFloat height;
@@ -56,6 +61,7 @@
 @end
 
 @implementation BrickIndexPath
+
 + (id)indexPathWithIndex:(NSUInteger)index column:(NSInteger)column height:(CGFloat)height
 {
     return [[self alloc]initWithIndex:index column:column height:height];
@@ -79,6 +85,7 @@
             (unsigned long)self.column,
             self.height];
 }
+
 @end
 
 @protocol BrickViewCellDelegate <NSObject>
@@ -92,13 +99,16 @@
     @private
     NSNumber *_number;
 }
+
 @property (nonatomic, assign) id<BrickViewCellDelegate> delegate;
 @property (nonatomic) NSInteger brickIndex;
 @property (nonatomic) NSString *reuseIdentifier;
 @property (nonatomic) BOOL touching;
+
 @end
 
 @implementation BrickViewCell
+
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
 {
     if(self = [super init]) {
@@ -109,6 +119,7 @@
 }
 
 #pragma mark - accessor
+
 - (void)setBrickIndex:(NSInteger)brickIndex
 {
     _number = @(brickIndex);
@@ -123,6 +134,7 @@
 }
 
 #pragma mark -
+
 - (void)setup
 {
     self.touching = NO;
@@ -172,6 +184,7 @@
     @package
     id _delegate;
 }
+
 @property (nonatomic) BOOL loading;
 
 @property (nonatomic, readonly) NSInteger numberOfColumns;
@@ -188,28 +201,28 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-		self.showsHorizontalScrollIndicator = NO;
-        self.showsVerticalScrollIndicator = NO;
-        self.clipsToBounds = NO;
-        self.alwaysBounceVertical = YES;
-		[super setDelegate:self];
-        _reusableCells = [@{} mutableCopy];
-        self.loading = NO;
-        [self initialize];
+        [self brick_configure];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    _heightIndexes = nil;
-    _visibleCells = nil;
-    _reusableCells = nil;
-    _dataSource = nil;
     self->_delegate = nil;
 }
 
+- (void)brick_configure
+{
+    self.showsHorizontalScrollIndicator = NO;
+    self.showsVerticalScrollIndicator = NO;
+    self.clipsToBounds = NO;
+    self.alwaysBounceVertical = YES;
+    [super setDelegate:self];
+    _reusableCells = [@{} mutableCopy];
+}
+
 #pragma mark -
+
 - (void)reloadData
 {
     for (id cell in self.visibleCells) {
@@ -223,7 +236,7 @@
 - (void)updateData
 {
     self.loading = NO;
-    [self initialize];
+    [self brick_initialize];
 }
 
 #pragma mark - setter/getter
@@ -231,13 +244,13 @@
 - (void)setDataSource:(id<BrickViewDataSource>)dataSource
 {
     _dataSource = dataSource;
-    [self initialize];
+    [self brick_initialize];
 }
 
 - (void)setDelegate:(id<BrickViewDelegate>)delegate
 {
     self->_delegate = delegate;
-    [self initialize];
+    [self brick_initialize];
 }
 
 - (id<BrickViewDelegate>)delegate
@@ -248,13 +261,13 @@
 - (void)setHeaderView:(UIView *)headerView
 {
     _headerView = headerView;
-    [self initialize];
+    [self brick_initialize];
 }
 
 - (void)setFooterView:(UIView *)footerView
 {
     _footerView = footerView;
-    [self initialize];
+    [self brick_initialize];
 }
 
 - (NSInteger)numberOfColumns
@@ -290,9 +303,9 @@
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier
 {
     if (identifier &&
-        [self.reusableCells objectForKey:identifier]) {
-        id cell = [[self.reusableCells objectForKey:identifier] lastObject];
-        [[self.reusableCells objectForKey:identifier] removeLastObject];
+        self.reusableCells[identifier]) {
+        id cell = [self.reusableCells[identifier] lastObject];
+        [self.reusableCells[identifier] removeLastObject];
         return cell;
     }
 
@@ -301,22 +314,23 @@
 
 - (void)recycleCellIntoReusableQueue:(BrickViewCell *)cell
 {
-    if (![self.reusableCells objectForKey:cell.reuseIdentifier]) {
-        [self.reusableCells setObject:[@[] mutableCopy] forKey:cell.reuseIdentifier];
+    if (!self.reusableCells[cell.reuseIdentifier]) {
+        self.reusableCells[cell.reuseIdentifier] = [@[] mutableCopy];
     }
 
-    [[self.reusableCells objectForKey:cell.reuseIdentifier] addObject:cell];
+    [self.reusableCells[cell.reuseIdentifier] addObject:cell];
 }
 
 #pragma mark -
-- (BOOL)validateToInitialize
+
+- (BOOL)brick_validateToInitialize
 {
     return self.dataSource && self.delegate;
 }
 
-- (void)initialize
+- (void)brick_initialize
 {
-    if (![self validateToInitialize]) {
+    if (![self brick_validateToInitialize]) {
         return;
     }
 
