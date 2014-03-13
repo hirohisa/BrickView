@@ -50,7 +50,9 @@
 @property (nonatomic, readonly) NSUInteger index;
 @property (nonatomic, readonly) NSUInteger column;
 @property (nonatomic, readonly) CGFloat height;
+
 + (id)indexPathWithIndex:(NSUInteger)index column:(NSInteger)column height:(CGFloat)height;
+
 @end
 
 @implementation BrickIndexPath
@@ -80,8 +82,10 @@
 @end
 
 @protocol BrickViewCellDelegate <NSObject>
-- (void)didLongPress:(BrickViewCell *)cell;
-- (void)didTap:(BrickViewCell *)cell;
+
+- (void)didLongPressCell:(BrickViewCell *)cell;
+- (void)didSelectCell:(BrickViewCell *)cell;
+
 @end
 
 @interface BrickViewCell () {
@@ -130,7 +134,7 @@
 - (void)handleLongPress:(UIGestureRecognizer *)gesture
 {
     if (self.touching) {
-        [self.delegate didLongPress:self];
+        [self.delegate didLongPressCell:self];
     }
 }
 
@@ -151,7 +155,7 @@
     [super touchesEnded:touches withEvent:event];
     if (self.touching) {
         self.touching = NO;
-        [self.delegate didTap:self];
+        [self.delegate didSelectCell:self];
     }
 }
 
@@ -267,17 +271,17 @@
 
 #pragma mark - BrickViewCellDelegate
 
-- (void)didLongPress:(BrickViewCell *)cell
+- (void)didLongPressCell:(BrickViewCell *)cell
 {
-    if ([self.delegate respondsToSelector:@selector(brickView:didLongPress:AtIndex:)]) {
-        [self.delegate brickView:self didLongPress:cell AtIndex:cell.brickIndex];
+    if ([self.delegate respondsToSelector:@selector(brickView:didLongPressCell:AtIndex:)]) {
+        [self.delegate brickView:self didLongPressCell:cell AtIndex:cell.brickIndex];
     }
 }
 
-- (void)didTap:(BrickViewCell *)cell
+- (void)didSelectCell:(BrickViewCell *)cell
 {
-    if ([self.delegate respondsToSelector:@selector(brickView:didSelect:AtIndex:)]) {
-        [self.delegate brickView:self didSelect:cell AtIndex:cell.brickIndex];
+    if ([self.delegate respondsToSelector:@selector(brickView:didSelectCell:AtIndex:)]) {
+        [self.delegate brickView:self didSelectCell:cell AtIndex:cell.brickIndex];
     }
 }
 

@@ -109,12 +109,12 @@
 }
 
 #pragma mark -
-- (void)brickView:(BrickView *)brickView didSelect:(BrickViewCell *)cell AtIndex:(int)index
+- (void)brickView:(BrickView *)brickView didSelectCell:(BrickViewCell *)cell AtIndex:(NSInteger)index
 {
     NSLog(@"did select index %d", index);
 }
 
-- (void)brickView:(BrickView *)brickView didLongPress:(BrickViewCell *)cell AtIndex:(NSInteger)index
+- (void)brickView:(BrickView *)brickView didLongPressCell:(BrickViewCell *)cell AtIndex:(NSInteger)index
 {
     NSLog(@"did long-press index %d", index);
     [self.list removeObjectAtIndex:index];

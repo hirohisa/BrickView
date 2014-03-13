@@ -18,8 +18,8 @@
 
 @optional
 
-- (void)brickView:(BrickView *)brickView didSelect:(BrickViewCell *)cell AtIndex:(NSInteger)index;
-- (void)brickView:(BrickView *)brickView didLongPress:(BrickViewCell *)cell AtIndex:(NSInteger)index;
+- (void)brickView:(BrickView *)brickView didSelectCell:(BrickViewCell *)cell AtIndex:(NSInteger)index;
+- (void)brickView:(BrickView *)brickView didLongPressCell:(BrickViewCell *)cell AtIndex:(NSInteger)index;
 
 @end
 
