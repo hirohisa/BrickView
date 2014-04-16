@@ -12,30 +12,30 @@
 
 + (id)indexPathWithIndex:(NSUInteger)index
                   column:(NSInteger)column
-                  height:(float)height;
+                   frame:(CGRect)frame
 {
-    return [[self alloc]initWithIndex:index column:column height:height];
+    return [[self alloc]initWithIndex:index column:column frame:frame];
 }
 
 - (id)initWithIndex:(NSUInteger)index
              column:(NSInteger)column
-             height:(float)height
+              frame:(CGRect)frame
 {
     self = [super init];
     if (self) {
         _index  = index;
         _column = column;
-        _height = height;
+        _frame  = frame;
     }
     return self;
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<BrickIndexPath index:%ld, column:%ld, height:%.1f>",
+    return [NSString stringWithFormat:@"<BrickIndexPath index:%ld, column:%ld %@>",
             (unsigned long)self.index,
             (unsigned long)self.column,
-            self.height];
+            NSStringFromCGRect(self.frame)];
 }
 
 @end

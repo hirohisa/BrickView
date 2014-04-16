@@ -89,8 +89,7 @@
 
 @property (nonatomic, readonly) NSInteger numberOfColumns;
 @property (nonatomic) NSInteger numberOfCells;
-@property (nonatomic, readonly) CGPoint lazyOffset;
-@property (nonatomic, strong) NSMutableArray *heightIndexes;
+@property (nonatomic, strong) NSMutableArray *brickIndexPaths;
 @property (nonatomic, strong) NSMutableArray *visibleCells;
 @property (nonatomic, strong) NSMutableDictionary *reusableCells;
 @end
@@ -246,9 +245,9 @@
     }
 
     self.numberOfCells = [self.dataSource numberOfCellsInBrickView:self];
-    self.heightIndexes = [@[] mutableCopy];
+    self.brickIndexPaths = [@[] mutableCopy];
     for (int i=0; i<[self.dataSource numberOfColumnsInBrickView:self]; i++) {
-        [self.heightIndexes addObject:[@[] mutableCopy]];
+        [self.brickIndexPaths addObject:[@[] mutableCopy]];
     }
 
     [self adjustContent];
@@ -259,7 +258,6 @@
 
 - (void)adjustContent
 {
-    NSUInteger lowerColumn = 0;
     CGFloat offsetHeight = self.padding;
 
     // header
@@ -277,19 +275,28 @@
     }
 
     // height indexes
+    NSUInteger column;
+    CGRect frame;
     for (int index = 0; index< self.numberOfCells; index++) {
-        lowerColumn = [lastHeights compareLeastIndex];
-        CGFloat height = [lastHeights[lowerColumn] floatValue];
-        BrickIndexPath *indexPath = [BrickIndexPath indexPathWithIndex:index
-                                                                column:lowerColumn
-                                                                height:height];
-        [self.heightIndexes[lowerColumn] addObject:indexPath];
-        height += ([self.delegate brickView:self heightForCellAtIndex:index] + self.padding);
+        column = [lastHeights compareLeastIndex];
 
-        [lastHeights setObject:@(height) atIndexedSubscript:lowerColumn];
+        frame = (CGRect) {
+            .origin.x       = column*self.widthOfCell + self.padding*(column+1),
+            .origin.y       = [lastHeights[column] floatValue],
+            .size.width     = self.widthOfCell,
+            .size.height    = [self.delegate brickView:self heightForCellAtIndex:index],
+        };
+
+        BrickIndexPath *indexPath = [BrickIndexPath indexPathWithIndex:index
+                                                                column:column
+                                                                 frame:frame];
+        [self.brickIndexPaths[column] addObject:indexPath];
+
+        CGFloat height = CGRectGetMaxY(frame) + self.padding;
+        [lastHeights setObject:@(height) atIndexedSubscript:column];
     }
 
-    CGFloat contentHeight = 0.;
+    CGFloat contentHeight = 0.f;
     if ([lastHeights count] > 0) {
         contentHeight = [lastHeights[[lastHeights compareGreatestIndex]] floatValue];
     }
@@ -307,11 +314,12 @@
 
 - (void)renderCells
 {
-    CGSize limit = CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds));
-    limit.height += self.earlyScope;
-    limit.height += abs(self.contentOffset.y - self.lazyOffset.y);
+    CGRect rect = (CGRect) {
+        .origin = self.contentOffset,
+        .size   = self.frame.size
+    };
 
-    NSMutableArray *indexPaths = [[self getBrickIndexPaths:self.lazyOffset limit:limit] mutableCopy];
+    NSMutableArray *indexPaths = [[self.brickIndexPaths filteredArrayUsingBrickIndexPathContainsRect:rect] mutableCopy];
 
     NSMutableArray *cells = [@[] mutableCopy];
 
@@ -338,41 +346,13 @@
     }
 
     // add cells to visibled
-    [cells addObjectsFromArray:[self getCellsWithIndexPaths:indexPaths]];
+    for (BrickViewCell *cell in [self getCellsWithIndexPaths:indexPaths]) {
+        cell.delegate = self;
+        [self addSubview:cell];
+        [cells addObject:cell];
+    }
 
     self.visibleCells = [cells mutableCopy];
-    for (BrickViewCell *cell in self.visibleCells) {
-        cell.delegate = self;
-        if (![cell isDescendantOfView:self]) {
-            [self addSubview:cell];
-        }
-    }
-}
-
-- (CGPoint)lazyOffset
-{
-    CGFloat x = self.contentOffset.x - CGRectGetWidth(self.bounds);
-    CGFloat y = self.contentOffset.y - CGRectGetHeight(self.bounds);
-    return CGPointMake((x>0.)?x:0., (y>0.)?y:0.);
-}
-
-- (NSArray *)getBrickIndexPaths:(CGPoint)offset limit:(CGSize)limit
-{
-    NSMutableArray *indexPaths = [@[] mutableCopy];
-
-    for (int column=0; column<[self.heightIndexes count]; column++) {
-        NSArray *list = self.heightIndexes[column];
-        for (int i=0; i<[list count]; i++) {
-            BrickIndexPath *indexPath = list[i];
-            if (offset.y <= indexPath.height && indexPath.height <= offset.y + limit.height) {
-                [indexPaths addObject:indexPath];
-            } else if (indexPath.height > offset.y + limit.height) {
-                break;
-            }
-        }
-    }
-
-    return indexPaths.copy;
 }
 
 - (NSArray *)getCellsWithIndexPaths:(NSArray *)indexPaths
@@ -381,19 +361,16 @@
     for (BrickIndexPath *indexPath in indexPaths) {
         [cells addObject:[self cellAtIndexPath:indexPath]];
     }
-    return cells.copy;
+    return [cells copy];
 }
 
 - (BrickViewCell *)cellAtIndexPath:(BrickIndexPath *)indexPath
 {
     BrickViewCell *cell = [self.dataSource brickView:self cellAtIndex:indexPath.index];
     cell.brickIndex = indexPath.index;
+    cell.frame = indexPath.frame;
+    [cell setNeedsLayout];
 
-    CGFloat height = [self.delegate brickView:self heightForCellAtIndex:indexPath.index];
-
-    CGFloat x = indexPath.column*self.widthOfCell + self.padding*(indexPath.column+1);
-    CGFloat y = indexPath.height;
-    cell.frame = CGRectMake(x, y , self.widthOfCell, height);
     return cell;
 }
 

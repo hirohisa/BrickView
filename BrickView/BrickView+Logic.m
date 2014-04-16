@@ -7,6 +7,7 @@
 //
 
 #import "BrickView+Logic.h"
+#import "BrickIndexPath.h"
 
 @implementation NSArray (BrickView)
 
@@ -38,6 +39,23 @@
         }
     }
     return index;
+}
+
+- (NSArray *)filteredArrayUsingBrickIndexPathContainsRect:(CGRect)rect
+{
+    NSMutableArray *indexPaths = [@[] mutableCopy];
+
+    for (int column=0; column<[self count]; column++) {
+        NSArray *list = self[column];
+        for (int i=0; i<[list count]; i++) {
+            BrickIndexPath *indexPath = list[i];
+            if (CGRectIntersectsRect(indexPath.frame, rect)) {
+                [indexPaths addObject:indexPath];
+            }
+        }
+    }
+
+    return [indexPaths copy];
 }
 
 @end
