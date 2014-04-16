@@ -7,86 +7,9 @@
 //
 
 #import "BrickView.h"
+#import "BrickIndexPath.h"
+#import "BrickView+Logic.h"
 
-
-@interface NSArray (BrickView)
-
-- (NSInteger)compareLeastIndex;
-- (NSInteger)compareGreatestIndex;
-
-@end
-
-@implementation NSArray (BrickView)
-
-- (NSInteger)compareLeastIndex
-{
-    id criteria = nil;
-    NSInteger index = 0;
-    for (NSInteger i=0; i<[self count]; i++) {
-        if (!criteria) criteria = self[i];
-
-        if (floor([self[i] floatValue]) < floor([criteria floatValue])) {
-            criteria = self[i];
-            index = i;
-        }
-    }
-    return index;
-}
-
-- (NSInteger)compareGreatestIndex
-{
-    id criteria = nil;
-    NSInteger index = 0;
-    for (NSInteger i=0; i<[self count]; i++) {
-        if (!criteria) criteria = self[i];
-
-        if (floor([self[i] floatValue]) > floor([criteria floatValue])) {
-            criteria = self[i];
-            index = i;
-        }
-    }
-    return index;
-}
-
-@end
-
-@interface BrickIndexPath : NSObject
-
-@property (nonatomic, readonly) NSUInteger index;
-@property (nonatomic, readonly) NSUInteger column;
-@property (nonatomic, readonly) CGFloat height;
-
-+ (id)indexPathWithIndex:(NSUInteger)index column:(NSInteger)column height:(CGFloat)height;
-
-@end
-
-@implementation BrickIndexPath
-
-+ (id)indexPathWithIndex:(NSUInteger)index column:(NSInteger)column height:(CGFloat)height
-{
-    return [[self alloc]initWithIndex:index column:column height:height];
-}
-
-- (id)initWithIndex:(NSUInteger)index column:(NSInteger)column height:(CGFloat)height
-{
-    self = [super init];
-    if (self) {
-        _index = index;
-        _height = height;
-        _column = column;
-    }
-    return self;
-}
-
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"<BrickIndexPath index:%ld, column:%ld, height:%.1f>",
-            (unsigned long)self.index,
-            (unsigned long)self.column,
-            self.height];
-}
-
-@end
 
 @protocol BrickViewCellDelegate <NSObject>
 
@@ -357,7 +280,9 @@
     for (int index = 0; index< self.numberOfCells; index++) {
         lowerColumn = [lastHeights compareLeastIndex];
         CGFloat height = [lastHeights[lowerColumn] floatValue];
-        BrickIndexPath *indexPath = [BrickIndexPath indexPathWithIndex:index column:lowerColumn height:height];
+        BrickIndexPath *indexPath = [BrickIndexPath indexPathWithIndex:index
+                                                                column:lowerColumn
+                                                                height:height];
         [self.heightIndexes[lowerColumn] addObject:indexPath];
         height += ([self.delegate brickView:self heightForCellAtIndex:index] + self.padding);
 
