@@ -159,7 +159,7 @@
 
 @interface BrickView () <UIScrollViewDelegate, BrickViewCellDelegate> {
     @package
-    id _delegate;
+    __unsafe_unretained id _delegate;
 }
 
 @property (nonatomic) BOOL loading;
@@ -236,7 +236,9 @@
 - (void)setDelegate:(id<BrickViewDelegate>)delegate
 {
     self->_delegate = delegate;
-    [self brick_initialize];
+    if (delegate) {
+        [self brick_initialize];
+    }
 }
 
 - (id<BrickViewDelegate>)delegate
