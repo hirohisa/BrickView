@@ -14,4 +14,5 @@
 - (NSInteger)compareGreatestIndex;
 
 - (NSArray *)filteredArrayUsingBrickIndexPathContainsRect:(CGRect)rect;
+
 @end

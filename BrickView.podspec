@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source       = {
                       :git => "https://github.com/hirohisa/BrickView.git", 
-                      :tag => "#{s.version}"
+                      :tag => s.version
                    }
   s.source_files  = 'BrickView'
   s.requires_arc = true

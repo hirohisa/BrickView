@@ -85,8 +85,6 @@
     __unsafe_unretained id _delegate;
 }
 
-@property (nonatomic) BOOL loading;
-
 @property (nonatomic, readonly) NSInteger numberOfColumns;
 @property (nonatomic) NSInteger numberOfCells;
 @property (nonatomic, strong) NSMutableArray *brickIndexPaths;
@@ -143,7 +141,6 @@
 
 - (void)updateData
 {
-    self.loading = NO;
     [self brick_initialize];
 }
 

@@ -93,7 +93,7 @@
 - (CGFloat)brickView:(BrickView *)brickView heightForCellAtIndex:(NSInteger)index
 {
     CGFloat height = 0.f;
-    switch (rand()%3) {
+    switch (index%3) {
         case 0: {
             height = 100.f;
         }

@@ -10,16 +10,12 @@
 
 @implementation BrickIndexPath
 
-+ (id)indexPathWithIndex:(NSUInteger)index
-                  column:(NSInteger)column
-                   frame:(CGRect)frame
++ (id)indexPathWithIndex:(NSUInteger)index column:(NSInteger)column frame:(CGRect)frame
 {
     return [[self alloc]initWithIndex:index column:column frame:frame];
 }
 
-- (id)initWithIndex:(NSUInteger)index
-             column:(NSInteger)column
-              frame:(CGRect)frame
+- (id)initWithIndex:(NSUInteger)index column:(NSInteger)column frame:(CGRect)frame
 {
     self = [super init];
     if (self) {

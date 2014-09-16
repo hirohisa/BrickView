@@ -16,8 +16,7 @@
 @property (nonatomic, readonly) NSUInteger column;
 @property (nonatomic, readonly) CGRect frame;
 
-+ (id)indexPathWithIndex:(NSUInteger)index
-                  column:(NSInteger)column
-                   frame:(CGRect)frame;
++ (id)indexPathWithIndex:(NSUInteger)index column:(NSInteger)column frame:(CGRect)frame;
+- (id)initWithIndex:(NSUInteger)index column:(NSInteger)column frame:(CGRect)frame;
 
 @end
