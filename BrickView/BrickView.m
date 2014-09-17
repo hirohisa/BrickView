@@ -230,6 +230,7 @@
     self.visibleCells = [@[] mutableCopy];
     [self resetBrickIndexPaths];
 
+    [self addHeaderView];
     [self updateData];
 }
 
@@ -262,19 +263,30 @@
 
 - (void)adjustCells
 {
-    [self addHeaderView];
-    CGFloat offsetY = CGRectGetMaxY(self.headerView.frame) + self.padding;
 
     // offset Y
     NSMutableArray *offsetYs = [@[] mutableCopy];
     for (int i=0; i<self.numberOfColumns; i++) {
+        CGFloat offsetY = CGRectGetMaxY(self.headerView.frame);
+
+        BrickIndexPath *indexPath = [self.brickIndexPaths[i] lastObject];
+        if (indexPath) {
+            offsetY = CGRectGetMaxY(indexPath.frame);
+        }
+
+        offsetY += self.padding;
         [offsetYs addObject:@(offsetY)];
+    }
+
+    NSUInteger next = 0;
+    if ([self.brickIndexPaths lastBrickIndexPath].index) {
+        next = [self.brickIndexPaths lastBrickIndexPath].index +1;
     }
 
     // indexPaths
     NSUInteger column;
     CGRect frame;
-    for (int index = 0; index < self.numberOfCells; index++) {
+    for (int index = next; index < self.numberOfCells; index++) {
         column = [offsetYs compareLeastIndex];
 
         frame = (CGRect) {

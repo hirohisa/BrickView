@@ -41,6 +41,20 @@
     return index;
 }
 
+- (BrickIndexPath *)lastBrickIndexPath
+{
+    BrickIndexPath *lastIndexPath;
+    for (NSArray *array in self) {
+        BrickIndexPath *indexPath = [array lastObject];
+        if (!lastIndexPath ||
+            lastIndexPath.index < indexPath.index) {
+            lastIndexPath = indexPath;
+        }
+    }
+
+    return lastIndexPath;
+}
+
 - (NSArray *)filteredArrayUsingBrickIndexPathContainsRect:(CGRect)rect
 {
     NSMutableArray *indexPaths = [@[] mutableCopy];
