@@ -12,6 +12,7 @@
 @interface DemoBrickViewCell : BrickViewCell
 
 @property (nonatomic, readonly) UILabel *textLabel;
+@property (nonatomic, readonly) UILabel *detailLabel;
 
 @end
 
@@ -24,6 +25,9 @@
         _textLabel = [[UILabel alloc] init];
         self.textLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:self.textLabel];
+        _detailLabel = [[UILabel alloc] init];
+        self.detailLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:self.detailLabel];
     }
     return self;
 }
@@ -31,12 +35,27 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    self.textLabel.frame = (CGRect) {
-        .origin.x = 0.,
-        .origin.y = 0.,
-        .size.width = CGRectGetWidth(self.frame),
-        .size.height = CGRectGetHeight(self.frame)
-    };
+    if (![self.detailLabel.text length]) {
+        self.textLabel.frame = (CGRect) {
+            .origin.x = 0.,
+            .origin.y = 0.,
+            .size.width = CGRectGetWidth(self.frame),
+            .size.height = CGRectGetHeight(self.frame)
+        };
+    } else {
+        self.textLabel.frame = (CGRect) {
+            .origin.x = 0.,
+            .origin.y = 0.,
+            .size.width = CGRectGetWidth(self.frame),
+            .size.height = CGRectGetHeight(self.frame) - 30,
+        };
+        self.detailLabel.frame = (CGRect) {
+            .origin.x = 0.,
+            .origin.y = CGRectGetMaxY(self.textLabel.frame) + 5,
+            .size.width = CGRectGetWidth(self.frame),
+            .size.height = 15,
+        };
+    }
 }
 
 @end
@@ -73,21 +92,22 @@
 
 - (CGFloat)brickView:(BrickView *)brickView heightForCellAtIndex:(NSInteger)index
 {
+    CGFloat height = 0.f;
     switch (index%3) {
         case 0: {
-            return 100.;
+            height = 100.f;
         }
             break;
         case 1: {
-            return 50.;
+            height = 50.f;
         }
             break;
         case 2: {
-            return 70.;
+            height = 70.f;
         }
             break;
     }
-    return 100.;
+    return height;
 }
 
 - (NSInteger)numberOfColumnsInBrickView:(BrickView *)brickView
@@ -115,14 +135,17 @@
     switch (index%3) {
         case 0: {
             cell.backgroundColor = [UIColor grayColor];
+            cell.detailLabel.text = @"detail";
         }
             break;
         case 1: {
             cell.backgroundColor = [UIColor blueColor];
+            cell.detailLabel.text = nil;
         }
             break;
         case 2: {
             cell.backgroundColor = [UIColor purpleColor];
+            cell.detailLabel.text = nil;
         }
             break;
     }

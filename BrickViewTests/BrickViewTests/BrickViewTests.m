@@ -8,11 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "BrickView.h"
-
-@interface NSArray (BrickworkView)
-- (NSInteger)compareLeastIndex;
-- (NSInteger)compareGreatestIndex;
-@end
+#import "BrickView+Logic.h"
 
 @interface BrickViewTests : XCTestCase
 

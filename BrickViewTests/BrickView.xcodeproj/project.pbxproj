@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A18F694B18AE3E14002C943B /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = A18F694A18AE3E14002C943B /* BrickView.m */; };
+		65393FE818FE30C100003959 /* BrickIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 65393FE318FE30C100003959 /* BrickIndexPath.m */; };
+		65393FE918FE30C100003959 /* BrickView+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 65393FE518FE30C100003959 /* BrickView+Logic.m */; };
+		65393FEA18FE30C100003959 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65393FE718FE30C100003959 /* BrickView.m */; };
 		A1A43F0C18AE3CEC009F271B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43F0B18AE3CEC009F271B /* XCTest.framework */; };
 		A1A43F0D18AE3CEC009F271B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43EFD18AE3CEB009F271B /* Foundation.framework */; };
 		A1A43F0F18AE3CEC009F271B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43F0E18AE3CEC009F271B /* UIKit.framework */; };
@@ -16,8 +18,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A18F694918AE3E14002C943B /* BrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
-		A18F694A18AE3E14002C943B /* BrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
+		65393FE218FE30C100003959 /* BrickIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickIndexPath.h; sourceTree = "<group>"; };
+		65393FE318FE30C100003959 /* BrickIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickIndexPath.m; sourceTree = "<group>"; };
+		65393FE418FE30C100003959 /* BrickView+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrickView+Logic.h"; sourceTree = "<group>"; };
+		65393FE518FE30C100003959 /* BrickView+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BrickView+Logic.m"; sourceTree = "<group>"; };
+		65393FE618FE30C100003959 /* BrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
+		65393FE718FE30C100003959 /* BrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
 		A1A43EFD18AE3CEB009F271B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1A43F0A18AE3CEC009F271B /* BrickViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrickViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A43F0B18AE3CEC009F271B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -41,11 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A18F694818AE3E14002C943B /* BrickView */ = {
+		65393FE118FE30C100003959 /* BrickView */ = {
 			isa = PBXGroup;
 			children = (
-				A18F694918AE3E14002C943B /* BrickView.h */,
-				A18F694A18AE3E14002C943B /* BrickView.m */,
+				65393FE218FE30C100003959 /* BrickIndexPath.h */,
+				65393FE318FE30C100003959 /* BrickIndexPath.m */,
+				65393FE418FE30C100003959 /* BrickView+Logic.h */,
+				65393FE518FE30C100003959 /* BrickView+Logic.m */,
+				65393FE618FE30C100003959 /* BrickView.h */,
+				65393FE718FE30C100003959 /* BrickView.m */,
 			);
 			name = BrickView;
 			path = ../BrickView;
@@ -54,7 +64,7 @@
 		A1A43EF118AE3CEB009F271B = {
 			isa = PBXGroup;
 			children = (
-				A18F694818AE3E14002C943B /* BrickView */,
+				65393FE118FE30C100003959 /* BrickView */,
 				A1A43F1318AE3CEC009F271B /* BrickViewTests */,
 				A1A43EFC18AE3CEB009F271B /* Frameworks */,
 				A1A43EFB18AE3CEB009F271B /* Products */,
@@ -159,8 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A18F694B18AE3E14002C943B /* BrickView.m in Sources */,
+				65393FEA18FE30C100003959 /* BrickView.m in Sources */,
 				A1A43F1A18AE3CEC009F271B /* BrickViewTests.m in Sources */,
+				65393FE818FE30C100003959 /* BrickIndexPath.m in Sources */,
+				65393FE918FE30C100003959 /* BrickView+Logic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

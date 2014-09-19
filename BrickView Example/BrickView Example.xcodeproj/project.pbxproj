@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65393FE018FE306800003959 /* BrickView+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 65393FDF18FE306800003959 /* BrickView+Logic.m */; };
 		A1A43E8318AE36BA009F271B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8218AE36BA009F271B /* Foundation.framework */; };
 		A1A43E8518AE36BA009F271B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8418AE36BA009F271B /* CoreGraphics.framework */; };
 		A1A43E8718AE36BA009F271B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8618AE36BA009F271B /* UIKit.framework */; };
@@ -16,9 +17,12 @@
 		A1A43E9518AE36BA009F271B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A43E9418AE36BA009F271B /* Images.xcassets */; };
 		A1A43EBA18AE393D009F271B /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A43EB918AE393D009F271B /* DemoViewController.m */; };
 		A1A43EBE18AE3BFB009F271B /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A43EBD18AE3BFB009F271B /* BrickView.m */; };
+		A1ADF0E018FD95FB00CEBEEE /* BrickIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADF0DF18FD95FB00CEBEEE /* BrickIndexPath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65393FDE18FE306800003959 /* BrickView+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrickView+Logic.h"; sourceTree = "<group>"; };
+		65393FDF18FE306800003959 /* BrickView+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BrickView+Logic.m"; sourceTree = "<group>"; };
 		A1A43E7F18AE36BA009F271B /* BrickView Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BrickView Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A43E8218AE36BA009F271B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1A43E8418AE36BA009F271B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -35,6 +39,8 @@
 		A1A43EB918AE393D009F271B /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		A1A43EBC18AE3BFB009F271B /* BrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
 		A1A43EBD18AE3BFB009F271B /* BrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
+		A1ADF0DE18FD95FB00CEBEEE /* BrickIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickIndexPath.h; sourceTree = "<group>"; };
+		A1ADF0DF18FD95FB00CEBEEE /* BrickIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickIndexPath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,10 @@
 			children = (
 				A1A43EBC18AE3BFB009F271B /* BrickView.h */,
 				A1A43EBD18AE3BFB009F271B /* BrickView.m */,
+				A1ADF0DE18FD95FB00CEBEEE /* BrickIndexPath.h */,
+				A1ADF0DF18FD95FB00CEBEEE /* BrickIndexPath.m */,
+				65393FDE18FE306800003959 /* BrickView+Logic.h */,
+				65393FDF18FE306800003959 /* BrickView+Logic.m */,
 			);
 			name = BrickView;
 			path = ../BrickView;
@@ -180,7 +190,9 @@
 				A1A43EBE18AE3BFB009F271B /* BrickView.m in Sources */,
 				A1A43E9318AE36BA009F271B /* AppDelegate.m in Sources */,
 				A1A43E8F18AE36BA009F271B /* main.m in Sources */,
+				A1ADF0E018FD95FB00CEBEEE /* BrickIndexPath.m in Sources */,
 				A1A43EBA18AE393D009F271B /* DemoViewController.m in Sources */,
+				65393FE018FE306800003959 /* BrickView+Logic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +327,7 @@
 				A1A43EAD18AE36BA009F271B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
