@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "BrickView"
-  s.version      = "0.0.3"
+  s.version      = "0.1.0"
   s.summary      = "BrickView is a simple dynamic grid layout view for iOS like Pinterest."
   s.homepage     = "https://github.com/hirohisa/BrickView"
   s.license      = {

@@ -7,11 +7,14 @@
 //
 
 #import "BrickView.h"
+#import "BrickIndexPath.h"
 
 @interface NSArray (BrickView)
 
 - (NSInteger)compareLeastIndex;
 - (NSInteger)compareGreatestIndex;
+
+- (BrickIndexPath *)lastBrickIndexPath;
 
 - (NSArray *)filteredArrayUsingBrickIndexPathContainsRect:(CGRect)rect;
 

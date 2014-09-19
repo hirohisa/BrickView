@@ -34,14 +34,14 @@
     self = [super init];
     if(self) {
         self.reuseIdentifier = reuseIdentifier;
-        [self brick_initialize];
+        [self brickViewCell_configure];
 	}
 	return self;
 }
 
 #pragma mark -
 
-- (void)brick_initialize
+- (void)brickViewCell_configure
 {
     self.brickIndex = NSNotFound;
     UILongPressGestureRecognizer *longPressGesture =
@@ -86,7 +86,7 @@
 }
 
 @property (nonatomic, readonly) NSInteger numberOfColumns;
-@property (nonatomic) NSInteger numberOfCells;
+@property (nonatomic, readonly) NSInteger numberOfCells;
 @property (nonatomic, strong) NSMutableArray *brickIndexPaths;
 @property (nonatomic, strong) NSMutableArray *visibleCells;
 @property (nonatomic, strong) NSMutableDictionary *reusableCells;
@@ -98,7 +98,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self brick_configure];
+        [self brickView_configure];
     }
     return self;
 }
@@ -107,7 +107,7 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        [self brick_configure];
+        [self brickView_configure];
     }
     return self;
 }
@@ -117,7 +117,7 @@
     self->_delegate = nil;
 }
 
-- (void)brick_configure
+- (void)brickView_configure
 {
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
@@ -127,36 +127,19 @@
     _reusableCells = [@{} mutableCopy];
 }
 
-#pragma mark -
-
-- (void)reloadData
-{
-    for (id cell in self.visibleCells) {
-        [self recycleCellIntoReusableQueue:cell];
-        [cell removeFromSuperview];
-    }
-    self.visibleCells = [@[] mutableCopy];
-    [self updateData];
-}
-
-- (void)updateData
-{
-    [self brick_initialize];
-}
-
 #pragma mark - setter/getter
 
 - (void)setDataSource:(id<BrickViewDataSource>)dataSource
 {
     _dataSource = dataSource;
-    [self brick_initialize];
+    [self reloadData];
 }
 
 - (void)setDelegate:(id<BrickViewDelegate>)delegate
 {
     self->_delegate = delegate;
     if (delegate) {
-        [self brick_initialize];
+        [self reloadData];
     }
 }
 
@@ -168,18 +151,13 @@
 - (void)setHeaderView:(UIView *)headerView
 {
     _headerView = headerView;
-    [self brick_initialize];
+    [self reloadData];
 }
 
 - (void)setFooterView:(UIView *)footerView
 {
     _footerView = footerView;
-    [self brick_initialize];
-}
-
-- (NSInteger)numberOfColumns
-{
-    return [self.dataSource numberOfColumnsInBrickView:self];
+    [self reloadData];
 }
 
 -(CGFloat)widthOfCell
@@ -228,58 +206,92 @@
     [self.reusableCells[cell.reuseIdentifier] addObject:cell];
 }
 
-#pragma mark -
+#pragma mark - reload update action
 
-- (BOOL)brick_validateToInitialize
+- (BOOL)_canUpdateData
 {
     return self.dataSource && self.delegate;
 }
 
-- (void)brick_initialize
+- (void)resetBrickIndexPaths
 {
-    if (![self brick_validateToInitialize]) {
+    self.brickIndexPaths = [@[] mutableCopy];
+    for (int i=0; i< self.numberOfColumns; i++) {
+        [self.brickIndexPaths addObject:[@[] mutableCopy]];
+    }
+}
+
+- (void)reloadData
+{
+    for (id cell in self.visibleCells) {
+        [self recycleCellIntoReusableQueue:cell];
+        [cell removeFromSuperview];
+    }
+    self.visibleCells = [@[] mutableCopy];
+    [self resetBrickIndexPaths];
+
+    [self addHeaderView];
+    [self updateData];
+}
+
+- (void)updateData
+{
+    if (![self _canUpdateData]) {
         return;
     }
 
-    self.numberOfCells = [self.dataSource numberOfCellsInBrickView:self];
-    self.brickIndexPaths = [@[] mutableCopy];
-    for (int i=0; i<[self.dataSource numberOfColumnsInBrickView:self]; i++) {
-        [self.brickIndexPaths addObject:[@[] mutableCopy]];
+    _numberOfCells = [self.dataSource numberOfCellsInBrickView:self];
+    _numberOfColumns = [self.dataSource numberOfColumnsInBrickView:self];
+
+    if ([self.brickIndexPaths count] != self.numberOfColumns) {
+        [self resetBrickIndexPaths];
     }
 
-    [self adjustContent];
+    [self adjustCells];
     [self renderCells];
 }
 
 #pragma mark - logic
 
-- (void)adjustContent
+- (void)addHeaderView
 {
-    CGFloat offsetHeight = self.padding;
-
-    // header
-    if (self.headerView) {
+    if (self.headerView && !self.headerView.superview) {
         self.headerView.center = CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.headerView.bounds)/2+self.padding);
         [self addSubview:self.headerView];
+    }
+}
 
-        offsetHeight += CGRectGetHeight(self.headerView.bounds)+self.padding;
+- (void)adjustCells
+{
+
+    // offset Y
+    NSMutableArray *offsetYs = [@[] mutableCopy];
+    for (int i=0; i<self.numberOfColumns; i++) {
+        CGFloat offsetY = CGRectGetMaxY(self.headerView.frame);
+
+        BrickIndexPath *indexPath = [self.brickIndexPaths[i] lastObject];
+        if (indexPath) {
+            offsetY = CGRectGetMaxY(indexPath.frame);
+        }
+
+        offsetY += self.padding;
+        [offsetYs addObject:@(offsetY)];
     }
 
-    // last heights
-    NSMutableArray *lastHeights = [@[] mutableCopy];
-    for (int i=0; i<[self.dataSource numberOfColumnsInBrickView:self]; i++) {
-        [lastHeights addObject:@(offsetHeight)];
+    NSUInteger next = 0;
+    if ([self.brickIndexPaths lastBrickIndexPath].index) {
+        next = [self.brickIndexPaths lastBrickIndexPath].index +1;
     }
 
-    // height indexes
+    // indexPaths
     NSUInteger column;
     CGRect frame;
-    for (int index = 0; index< self.numberOfCells; index++) {
-        column = [lastHeights compareLeastIndex];
+    for (int index = next; index < self.numberOfCells; index++) {
+        column = [offsetYs compareLeastIndex];
 
         frame = (CGRect) {
             .origin.x       = column*self.widthOfCell + self.padding*(column+1),
-            .origin.y       = [lastHeights[column] floatValue],
+            .origin.y       = [offsetYs[column] floatValue],
             .size.width     = self.widthOfCell,
             .size.height    = [self.delegate brickView:self heightForCellAtIndex:index],
         };
@@ -290,12 +302,12 @@
         [self.brickIndexPaths[column] addObject:indexPath];
 
         CGFloat height = CGRectGetMaxY(frame) + self.padding;
-        [lastHeights setObject:@(height) atIndexedSubscript:column];
+        [offsetYs setObject:@(height) atIndexedSubscript:column];
     }
 
     CGFloat contentHeight = 0.f;
-    if ([lastHeights count] > 0) {
-        contentHeight = [lastHeights[[lastHeights compareGreatestIndex]] floatValue];
+    if ([offsetYs count] > 0) {
+        contentHeight = [offsetYs[[offsetYs compareGreatestIndex]] floatValue];
     }
 
     // footer
