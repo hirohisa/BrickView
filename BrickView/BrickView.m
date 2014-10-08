@@ -286,7 +286,7 @@
     // indexPaths
     NSUInteger column;
     CGRect frame;
-    for (int index = next; index < self.numberOfCells; index++) {
+    for (int index = (int)next; index < self.numberOfCells; index++) {
         column = [offsetYs compareLeastIndex];
 
         frame = (CGRect) {
