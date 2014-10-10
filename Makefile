@@ -1,4 +1,4 @@
-PROJECT = BrickViewTests/BrickView.xcodeproj
+PROJECT = BrickView.xcodeproj
 
 clean:
 	xcodebuild \
