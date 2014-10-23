@@ -18,7 +18,7 @@ There are two ways to use this in your project:
 - Install with CocoaPods to write Podfile
 ```ruby
 platform :ios
-pod 'BrickView',  '~> 0.0.2'
+pod 'BrickView',  '~> 0.1.1'
 ```
 
 Usage
