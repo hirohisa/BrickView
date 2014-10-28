@@ -35,8 +35,8 @@
     if(self) {
         self.reuseIdentifier = reuseIdentifier;
         [self brickViewCell_configure];
-	}
-	return self;
+    }
+    return self;
 }
 
 #pragma mark -
@@ -230,7 +230,6 @@
     self.visibleCells = [@[] mutableCopy];
     [self resetBrickIndexPaths];
 
-    [self addHeaderView];
     [self updateData];
 }
 
@@ -253,16 +252,13 @@
 
 #pragma mark - logic
 
-- (void)addHeaderView
+- (void)adjustCells
 {
-    if (self.headerView && !self.headerView.superview) {
+    // header
+    if (self.headerView) {
         self.headerView.center = CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.headerView.bounds)/2+self.padding);
         [self addSubview:self.headerView];
     }
-}
-
-- (void)adjustCells
-{
 
     // offset Y
     NSMutableArray *offsetYs = [@[] mutableCopy];
