@@ -39,6 +39,16 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self brickViewCell_configure];
+    }
+
+    return self;
+}
+
 - (void)prepareForReuse
 {}
 
