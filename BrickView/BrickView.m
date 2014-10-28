@@ -39,6 +39,9 @@
     return self;
 }
 
+- (void)prepareForReuse
+{}
+
 #pragma mark -
 
 - (void)brickViewCell_configure
@@ -191,6 +194,10 @@
         self.reusableCells[identifier]) {
         id cell = [self.reusableCells[identifier] lastObject];
         [self.reusableCells[identifier] removeLastObject];
+
+        if ([cell respondsToSelector:@selector(prepareForReuse)]) {
+            [(BrickViewCell *)cell prepareForReuse];
+        }
         return cell;
     }
 

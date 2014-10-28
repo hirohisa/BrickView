@@ -36,6 +36,7 @@
 @interface BrickViewCell : UIView <NSCoding>
 
 - (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (void)prepareForReuse; // if the cell is reusable (has a reuse identifier), this is called just before the cell is returned from the brick view method dequeueReusableCellWithIdentifier:.
 
 @end
 
