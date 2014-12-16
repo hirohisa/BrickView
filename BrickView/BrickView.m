@@ -406,7 +406,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     if ([self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
-        [self.delegate scrollViewDidZoom:scrollView];
+        [self.delegate scrollViewWillBeginDragging:scrollView];
     }
 }
 
