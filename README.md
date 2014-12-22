@@ -5,8 +5,7 @@ usage of BrickView is like UITableViewDelegate and UITableViewDatasource.
 
 This package has all the documentation and demos to get you started.
 
-![screenshot](https://raw.github.com/hirohisa/BrickView/master/BrickView Example/screenshot1.png)
-![screenshot](https://raw.github.com/hirohisa/BrickView/master/BrickView Example/screenshot2.png)
+![sample](https://raw.github.com/hirohisa/BrickView/master/BrickView Example/sample.gif)
 
 Installation
 ----------
