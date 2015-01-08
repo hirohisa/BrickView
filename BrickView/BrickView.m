@@ -39,6 +39,16 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self brickViewCell_configure];
+    }
+
+    return self;
+}
+
 - (void)prepareForReuse
 {}
 
@@ -217,7 +227,7 @@
 
 - (BOOL)_canUpdateData
 {
-    return self.dataSource && self.delegate;
+    return self.dataSource && self.delegate && !CGRectEqualToRect(self.frame, CGRectZero);
 }
 
 - (void)resetBrickIndexPaths
@@ -236,7 +246,6 @@
     }
     self.visibleCells = [@[] mutableCopy];
     [self resetBrickIndexPaths];
-
     [self updateData];
 }
 
@@ -262,7 +271,7 @@
 - (void)adjustCells
 {
     // header
-    if (self.headerView) {
+    if (self.headerView && !self.headerView.superview) {
         self.headerView.center = CGPointMake(CGRectGetWidth(self.bounds)/2, CGRectGetHeight(self.headerView.bounds)/2+self.padding);
         [self addSubview:self.headerView];
     }
