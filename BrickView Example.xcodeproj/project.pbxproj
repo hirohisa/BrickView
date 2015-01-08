@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65393FE018FE306800003959 /* BrickView+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 65393FDF18FE306800003959 /* BrickView+Logic.m */; };
+		65F9EEDF1A5E6022009CD519 /* BrickIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F9EEDA1A5E6022009CD519 /* BrickIndexPath.m */; };
+		65F9EEE01A5E6022009CD519 /* BrickView+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F9EEDC1A5E6022009CD519 /* BrickView+Logic.m */; };
+		65F9EEE11A5E6022009CD519 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F9EEDE1A5E6022009CD519 /* BrickView.m */; };
 		A1A43E8318AE36BA009F271B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8218AE36BA009F271B /* Foundation.framework */; };
 		A1A43E8518AE36BA009F271B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8418AE36BA009F271B /* CoreGraphics.framework */; };
 		A1A43E8718AE36BA009F271B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8618AE36BA009F271B /* UIKit.framework */; };
@@ -16,13 +18,15 @@
 		A1A43E9318AE36BA009F271B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A43E9218AE36BA009F271B /* AppDelegate.m */; };
 		A1A43E9518AE36BA009F271B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1A43E9418AE36BA009F271B /* Images.xcassets */; };
 		A1A43EBA18AE393D009F271B /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A43EB918AE393D009F271B /* DemoViewController.m */; };
-		A1A43EBE18AE3BFB009F271B /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1A43EBD18AE3BFB009F271B /* BrickView.m */; };
-		A1ADF0E018FD95FB00CEBEEE /* BrickIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A1ADF0DF18FD95FB00CEBEEE /* BrickIndexPath.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		65393FDE18FE306800003959 /* BrickView+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrickView+Logic.h"; sourceTree = "<group>"; };
-		65393FDF18FE306800003959 /* BrickView+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BrickView+Logic.m"; sourceTree = "<group>"; };
+		65F9EED91A5E6022009CD519 /* BrickIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickIndexPath.h; sourceTree = "<group>"; };
+		65F9EEDA1A5E6022009CD519 /* BrickIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickIndexPath.m; sourceTree = "<group>"; };
+		65F9EEDB1A5E6022009CD519 /* BrickView+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrickView+Logic.h"; sourceTree = "<group>"; };
+		65F9EEDC1A5E6022009CD519 /* BrickView+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BrickView+Logic.m"; sourceTree = "<group>"; };
+		65F9EEDD1A5E6022009CD519 /* BrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
+		65F9EEDE1A5E6022009CD519 /* BrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
 		A1A43E7F18AE36BA009F271B /* BrickView Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BrickView Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1A43E8218AE36BA009F271B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1A43E8418AE36BA009F271B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -37,10 +41,6 @@
 		A1A43E9B18AE36BA009F271B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A1A43EB818AE393D009F271B /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		A1A43EB918AE393D009F271B /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		A1A43EBC18AE3BFB009F271B /* BrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
-		A1A43EBD18AE3BFB009F271B /* BrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
-		A1ADF0DE18FD95FB00CEBEEE /* BrickIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickIndexPath.h; sourceTree = "<group>"; };
-		A1ADF0DF18FD95FB00CEBEEE /* BrickIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickIndexPath.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,10 +57,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65F9EED81A5E6022009CD519 /* BrickView */ = {
+			isa = PBXGroup;
+			children = (
+				65F9EED91A5E6022009CD519 /* BrickIndexPath.h */,
+				65F9EEDA1A5E6022009CD519 /* BrickIndexPath.m */,
+				65F9EEDB1A5E6022009CD519 /* BrickView+Logic.h */,
+				65F9EEDC1A5E6022009CD519 /* BrickView+Logic.m */,
+				65F9EEDD1A5E6022009CD519 /* BrickView.h */,
+				65F9EEDE1A5E6022009CD519 /* BrickView.m */,
+			);
+			path = BrickView;
+			sourceTree = "<group>";
+		};
 		A1A43E7618AE36BA009F271B = {
 			isa = PBXGroup;
 			children = (
-				A1A43EBB18AE3BFB009F271B /* BrickView */,
+				65F9EED81A5E6022009CD519 /* BrickView */,
 				A1A43E8818AE36BA009F271B /* BrickView Example */,
 				A1A43E8118AE36BA009F271B /* Frameworks */,
 				A1A43E8018AE36BA009F271B /* Products */,
@@ -108,20 +121,6 @@
 				A1A43E9018AE36BA009F271B /* BrickView Example-Prefix.pch */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A1A43EBB18AE3BFB009F271B /* BrickView */ = {
-			isa = PBXGroup;
-			children = (
-				A1A43EBC18AE3BFB009F271B /* BrickView.h */,
-				A1A43EBD18AE3BFB009F271B /* BrickView.m */,
-				A1ADF0DE18FD95FB00CEBEEE /* BrickIndexPath.h */,
-				A1ADF0DF18FD95FB00CEBEEE /* BrickIndexPath.m */,
-				65393FDE18FE306800003959 /* BrickView+Logic.h */,
-				65393FDF18FE306800003959 /* BrickView+Logic.m */,
-			);
-			name = BrickView;
-			path = ../BrickView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,12 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1A43EBE18AE3BFB009F271B /* BrickView.m in Sources */,
 				A1A43E9318AE36BA009F271B /* AppDelegate.m in Sources */,
 				A1A43E8F18AE36BA009F271B /* main.m in Sources */,
-				A1ADF0E018FD95FB00CEBEEE /* BrickIndexPath.m in Sources */,
+				65F9EEE11A5E6022009CD519 /* BrickView.m in Sources */,
 				A1A43EBA18AE393D009F271B /* DemoViewController.m in Sources */,
-				65393FE018FE306800003959 /* BrickView+Logic.m in Sources */,
+				65F9EEE01A5E6022009CD519 /* BrickView+Logic.m in Sources */,
+				65F9EEDF1A5E6022009CD519 /* BrickIndexPath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
