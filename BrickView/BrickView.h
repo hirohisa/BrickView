@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrickIndexPath.h"
+#import "BrickView+Logic.h"
 
 @class BrickView, BrickViewCell;
 

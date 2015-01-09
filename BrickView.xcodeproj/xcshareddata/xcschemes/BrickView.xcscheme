@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65D28BA219E7E60900559492"
-               BuildableName = "libBrickView.a"
+               BlueprintIdentifier = "A1443D3D1A5F54B30063F453"
+               BuildableName = "BrickView.framework"
                BlueprintName = "BrickView"
+               ReferencedContainer = "container:BrickView.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A1443D481A5F54B40063F453"
+               BuildableName = "BrickViewTests.xctest"
+               BlueprintName = "BrickViewTests"
                ReferencedContainer = "container:BrickView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "65D28BAD19E7E60900559492"
+               BlueprintIdentifier = "A1443D481A5F54B40063F453"
                BuildableName = "BrickViewTests.xctest"
                BlueprintName = "BrickViewTests"
                ReferencedContainer = "container:BrickView.xcodeproj">
@@ -42,8 +56,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "65D28BA219E7E60900559492"
-            BuildableName = "libBrickView.a"
+            BlueprintIdentifier = "A1443D3D1A5F54B30063F453"
+            BuildableName = "BrickView.framework"
             BlueprintName = "BrickView"
             ReferencedContainer = "container:BrickView.xcodeproj">
          </BuildableReference>
@@ -61,8 +75,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "65D28BA219E7E60900559492"
-            BuildableName = "libBrickView.a"
+            BlueprintIdentifier = "A1443D3D1A5F54B30063F453"
+            BuildableName = "BrickView.framework"
             BlueprintName = "BrickView"
             ReferencedContainer = "container:BrickView.xcodeproj">
          </BuildableReference>
@@ -79,8 +93,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "65D28BA219E7E60900559492"
-            BuildableName = "libBrickView.a"
+            BlueprintIdentifier = "A1443D3D1A5F54B30063F453"
+            BuildableName = "BrickView.framework"
             BlueprintName = "BrickView"
             ReferencedContainer = "container:BrickView.xcodeproj">
          </BuildableReference>

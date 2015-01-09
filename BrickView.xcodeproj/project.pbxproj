@@ -7,116 +7,140 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65D28BC519E7E67200559492 /* BrickViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D28BC419E7E67200559492 /* BrickViewTests.m */; };
-		65D28BD719E7E7D400559492 /* BrickIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D28BD219E7E7D400559492 /* BrickIndexPath.m */; };
-		65D28BD819E7E7D400559492 /* BrickIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D28BD219E7E7D400559492 /* BrickIndexPath.m */; };
-		65D28BD919E7E7D400559492 /* BrickView+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D28BD419E7E7D400559492 /* BrickView+Logic.m */; };
-		65D28BDA19E7E7D400559492 /* BrickView+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D28BD419E7E7D400559492 /* BrickView+Logic.m */; };
-		65D28BDB19E7E7D400559492 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D28BD619E7E7D400559492 /* BrickView.m */; };
-		65D28BDC19E7E7D400559492 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D28BD619E7E7D400559492 /* BrickView.m */; };
+		A1443D4A1A5F54B40063F453 /* BrickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1443D3E1A5F54B30063F453 /* BrickView.framework */; };
+		A1443D511A5F54B40063F453 /* BrickViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1443D501A5F54B40063F453 /* BrickViewTests.m */; };
+		A1443D6A1A5F55950063F453 /* BrickIndexPath.h in Headers */ = {isa = PBXBuildFile; fileRef = A1443D641A5F55950063F453 /* BrickIndexPath.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1443D6B1A5F55950063F453 /* BrickIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = A1443D651A5F55950063F453 /* BrickIndexPath.m */; };
+		A1443D6C1A5F55950063F453 /* BrickView.h in Headers */ = {isa = PBXBuildFile; fileRef = A1443D661A5F55950063F453 /* BrickView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1443D6D1A5F55950063F453 /* BrickView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1443D671A5F55950063F453 /* BrickView.m */; };
+		A1443D6E1A5F55950063F453 /* BrickView+Logic.h in Headers */ = {isa = PBXBuildFile; fileRef = A1443D681A5F55950063F453 /* BrickView+Logic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1443D6F1A5F55950063F453 /* BrickView+Logic.m in Sources */ = {isa = PBXBuildFile; fileRef = A1443D691A5F55950063F453 /* BrickView+Logic.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		65D28BA119E7E60900559492 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
+/* Begin PBXContainerItemProxy section */
+		A1443D4B1A5F54B40063F453 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1443D351A5F54B30063F453 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1443D3D1A5F54B30063F453;
+			remoteInfo = BrickView;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		65D28BA319E7E60900559492 /* libBrickView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libBrickView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		65D28BAE19E7E60900559492 /* BrickViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrickViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		65D28BB119E7E60900559492 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		65D28BC419E7E67200559492 /* BrickViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickViewTests.m; sourceTree = "<group>"; };
-		65D28BD119E7E7D400559492 /* BrickIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickIndexPath.h; sourceTree = "<group>"; };
-		65D28BD219E7E7D400559492 /* BrickIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickIndexPath.m; sourceTree = "<group>"; };
-		65D28BD319E7E7D400559492 /* BrickView+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrickView+Logic.h"; sourceTree = "<group>"; };
-		65D28BD419E7E7D400559492 /* BrickView+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BrickView+Logic.m"; sourceTree = "<group>"; };
-		65D28BD519E7E7D400559492 /* BrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
-		65D28BD619E7E7D400559492 /* BrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
+		A1443D3E1A5F54B30063F453 /* BrickView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BrickView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1443D421A5F54B30063F453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1443D491A5F54B40063F453 /* BrickViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrickViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1443D4F1A5F54B40063F453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1443D501A5F54B40063F453 /* BrickViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BrickViewTests.m; sourceTree = "<group>"; };
+		A1443D641A5F55950063F453 /* BrickIndexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickIndexPath.h; sourceTree = "<group>"; };
+		A1443D651A5F55950063F453 /* BrickIndexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickIndexPath.m; sourceTree = "<group>"; };
+		A1443D661A5F55950063F453 /* BrickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrickView.h; sourceTree = "<group>"; };
+		A1443D671A5F55950063F453 /* BrickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrickView.m; sourceTree = "<group>"; };
+		A1443D681A5F55950063F453 /* BrickView+Logic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrickView+Logic.h"; sourceTree = "<group>"; };
+		A1443D691A5F55950063F453 /* BrickView+Logic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BrickView+Logic.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		65D28BA019E7E60900559492 /* Frameworks */ = {
+		A1443D3A1A5F54B30063F453 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65D28BAB19E7E60900559492 /* Frameworks */ = {
+		A1443D461A5F54B40063F453 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1443D4A1A5F54B40063F453 /* BrickView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65D28B9A19E7E60900559492 = {
+		A1443D341A5F54B30063F453 = {
 			isa = PBXGroup;
 			children = (
-				65D28BD019E7E7D400559492 /* BrickView */,
-				65D28BAF19E7E60900559492 /* BrickViewTests */,
-				65D28BA419E7E60900559492 /* Products */,
+				A1443D401A5F54B30063F453 /* BrickView */,
+				A1443D4D1A5F54B40063F453 /* BrickViewTests */,
+				A1443D3F1A5F54B30063F453 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		65D28BA419E7E60900559492 /* Products */ = {
+		A1443D3F1A5F54B30063F453 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65D28BA319E7E60900559492 /* libBrickView.a */,
-				65D28BAE19E7E60900559492 /* BrickViewTests.xctest */,
+				A1443D3E1A5F54B30063F453 /* BrickView.framework */,
+				A1443D491A5F54B40063F453 /* BrickViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		65D28BAF19E7E60900559492 /* BrickViewTests */ = {
+		A1443D401A5F54B30063F453 /* BrickView */ = {
 			isa = PBXGroup;
 			children = (
-				65D28BC419E7E67200559492 /* BrickViewTests.m */,
-				65D28BB019E7E60900559492 /* Supporting Files */,
-			);
-			path = BrickViewTests;
-			sourceTree = "<group>";
-		};
-		65D28BB019E7E60900559492 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				65D28BB119E7E60900559492 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		65D28BD019E7E7D400559492 /* BrickView */ = {
-			isa = PBXGroup;
-			children = (
-				65D28BD119E7E7D400559492 /* BrickIndexPath.h */,
-				65D28BD219E7E7D400559492 /* BrickIndexPath.m */,
-				65D28BD319E7E7D400559492 /* BrickView+Logic.h */,
-				65D28BD419E7E7D400559492 /* BrickView+Logic.m */,
-				65D28BD519E7E7D400559492 /* BrickView.h */,
-				65D28BD619E7E7D400559492 /* BrickView.m */,
+				A1443D641A5F55950063F453 /* BrickIndexPath.h */,
+				A1443D651A5F55950063F453 /* BrickIndexPath.m */,
+				A1443D661A5F55950063F453 /* BrickView.h */,
+				A1443D671A5F55950063F453 /* BrickView.m */,
+				A1443D681A5F55950063F453 /* BrickView+Logic.h */,
+				A1443D691A5F55950063F453 /* BrickView+Logic.m */,
+				A1443D411A5F54B30063F453 /* Supporting Files */,
 			);
 			path = BrickView;
 			sourceTree = "<group>";
 		};
+		A1443D411A5F54B30063F453 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1443D421A5F54B30063F453 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1443D4D1A5F54B40063F453 /* BrickViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1443D501A5F54B40063F453 /* BrickViewTests.m */,
+				A1443D4E1A5F54B40063F453 /* Supporting Files */,
+			);
+			path = BrickViewTests;
+			sourceTree = "<group>";
+		};
+		A1443D4E1A5F54B40063F453 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1443D4F1A5F54B40063F453 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		A1443D3B1A5F54B30063F453 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1443D6C1A5F55950063F453 /* BrickView.h in Headers */,
+				A1443D6A1A5F55950063F453 /* BrickIndexPath.h in Headers */,
+				A1443D6E1A5F55950063F453 /* BrickView+Logic.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		65D28BA219E7E60900559492 /* BrickView */ = {
+		A1443D3D1A5F54B30063F453 /* BrickView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65D28BB419E7E60900559492 /* Build configuration list for PBXNativeTarget "BrickView" */;
+			buildConfigurationList = A1443D541A5F54B40063F453 /* Build configuration list for PBXNativeTarget "BrickView" */;
 			buildPhases = (
-				65D28B9F19E7E60900559492 /* Sources */,
-				65D28BA019E7E60900559492 /* Frameworks */,
-				65D28BA119E7E60900559492 /* CopyFiles */,
+				A1443D391A5F54B30063F453 /* Sources */,
+				A1443D3A1A5F54B30063F453 /* Frameworks */,
+				A1443D3B1A5F54B30063F453 /* Headers */,
+				A1443D3C1A5F54B30063F453 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -124,63 +148,71 @@
 			);
 			name = BrickView;
 			productName = BrickView;
-			productReference = 65D28BA319E7E60900559492 /* libBrickView.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = A1443D3E1A5F54B30063F453 /* BrickView.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		65D28BAD19E7E60900559492 /* BrickViewTests */ = {
+		A1443D481A5F54B40063F453 /* BrickViewTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65D28BB719E7E60900559492 /* Build configuration list for PBXNativeTarget "BrickViewTests" */;
+			buildConfigurationList = A1443D571A5F54B40063F453 /* Build configuration list for PBXNativeTarget "BrickViewTests" */;
 			buildPhases = (
-				65D28BAA19E7E60900559492 /* Sources */,
-				65D28BAB19E7E60900559492 /* Frameworks */,
-				65D28BAC19E7E60900559492 /* Resources */,
+				A1443D451A5F54B40063F453 /* Sources */,
+				A1443D461A5F54B40063F453 /* Frameworks */,
+				A1443D471A5F54B40063F453 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A1443D4C1A5F54B40063F453 /* PBXTargetDependency */,
 			);
 			name = BrickViewTests;
 			productName = BrickViewTests;
-			productReference = 65D28BAE19E7E60900559492 /* BrickViewTests.xctest */;
+			productReference = A1443D491A5F54B40063F453 /* BrickViewTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		65D28B9B19E7E60900559492 /* Project object */ = {
+		A1443D351A5F54B30063F453 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Hirohisa Kawasaki";
 				TargetAttributes = {
-					65D28BA219E7E60900559492 = {
-						CreatedOnToolsVersion = 6.0.1;
+					A1443D3D1A5F54B30063F453 = {
+						CreatedOnToolsVersion = 6.1.1;
 					};
-					65D28BAD19E7E60900559492 = {
-						CreatedOnToolsVersion = 6.0.1;
+					A1443D481A5F54B40063F453 = {
+						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
 			};
-			buildConfigurationList = 65D28B9E19E7E60900559492 /* Build configuration list for PBXProject "BrickView" */;
+			buildConfigurationList = A1443D381A5F54B30063F453 /* Build configuration list for PBXProject "BrickView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 65D28B9A19E7E60900559492;
-			productRefGroup = 65D28BA419E7E60900559492 /* Products */;
+			mainGroup = A1443D341A5F54B30063F453;
+			productRefGroup = A1443D3F1A5F54B30063F453 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65D28BA219E7E60900559492 /* BrickView */,
-				65D28BAD19E7E60900559492 /* BrickViewTests */,
+				A1443D3D1A5F54B30063F453 /* BrickView */,
+				A1443D481A5F54B40063F453 /* BrickViewTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		65D28BAC19E7E60900559492 /* Resources */ = {
+		A1443D3C1A5F54B30063F453 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1443D471A5F54B40063F453 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -190,31 +222,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		65D28B9F19E7E60900559492 /* Sources */ = {
+		A1443D391A5F54B30063F453 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65D28BD719E7E7D400559492 /* BrickIndexPath.m in Sources */,
-				65D28BD919E7E7D400559492 /* BrickView+Logic.m in Sources */,
-				65D28BDB19E7E7D400559492 /* BrickView.m in Sources */,
+				A1443D6D1A5F55950063F453 /* BrickView.m in Sources */,
+				A1443D6B1A5F55950063F453 /* BrickIndexPath.m in Sources */,
+				A1443D6F1A5F55950063F453 /* BrickView+Logic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		65D28BAA19E7E60900559492 /* Sources */ = {
+		A1443D451A5F54B40063F453 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65D28BDC19E7E7D400559492 /* BrickView.m in Sources */,
-				65D28BC519E7E67200559492 /* BrickViewTests.m in Sources */,
-				65D28BD819E7E7D400559492 /* BrickIndexPath.m in Sources */,
-				65D28BDA19E7E7D400559492 /* BrickView+Logic.m in Sources */,
+				A1443D511A5F54B40063F453 /* BrickViewTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A1443D4C1A5F54B40063F453 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1443D3D1A5F54B30063F453 /* BrickView */;
+			targetProxy = A1443D4B1A5F54B40063F453 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		65D28BB219E7E60900559492 /* Debug */ = {
+		A1443D521A5F54B40063F453 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -231,7 +268,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -247,14 +286,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		65D28BB319E7E60900559492 /* Release */ = {
+		A1443D531A5F54B40063F453 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -271,7 +313,9 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -281,46 +325,64 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		65D28BB519E7E60900559492 /* Debug */ = {
+		A1443D551A5F54B40063F453 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BrickView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		65D28BB619E7E60900559492 /* Release */ = {
+		A1443D561A5F54B40063F453 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_LDFLAGS = "-ObjC";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = BrickView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
-		65D28BB819E7E60900559492 /* Debug */ = {
+		A1443D581A5F54B40063F453 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = BrickViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		65D28BB919E7E60900559492 /* Release */ = {
+		A1443D591A5F54B40063F453 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -336,34 +398,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		65D28B9E19E7E60900559492 /* Build configuration list for PBXProject "BrickView" */ = {
+		A1443D381A5F54B30063F453 /* Build configuration list for PBXProject "BrickView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65D28BB219E7E60900559492 /* Debug */,
-				65D28BB319E7E60900559492 /* Release */,
+				A1443D521A5F54B40063F453 /* Debug */,
+				A1443D531A5F54B40063F453 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65D28BB419E7E60900559492 /* Build configuration list for PBXNativeTarget "BrickView" */ = {
+		A1443D541A5F54B40063F453 /* Build configuration list for PBXNativeTarget "BrickView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65D28BB519E7E60900559492 /* Debug */,
-				65D28BB619E7E60900559492 /* Release */,
+				A1443D551A5F54B40063F453 /* Debug */,
+				A1443D561A5F54B40063F453 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65D28BB719E7E60900559492 /* Build configuration list for PBXNativeTarget "BrickViewTests" */ = {
+		A1443D571A5F54B40063F453 /* Build configuration list for PBXNativeTarget "BrickViewTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				65D28BB819E7E60900559492 /* Debug */,
-				65D28BB919E7E60900559492 /* Release */,
+				A1443D581A5F54B40063F453 /* Debug */,
+				A1443D591A5F54B40063F453 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 65D28B9B19E7E60900559492 /* Project object */;
+	rootObject = A1443D351A5F54B30063F453 /* Project object */;
 }

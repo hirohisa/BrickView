@@ -7,9 +7,6 @@
 //
 
 #import "BrickView.h"
-#import "BrickIndexPath.h"
-#import "BrickView+Logic.h"
-
 
 @protocol BrickViewCellDelegate <NSObject>
 

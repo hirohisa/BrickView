@@ -7,7 +7,7 @@
 //
 
 #import "DemoViewController.h"
-#import "BrickView.h"
+#import <BrickView/BrickView.h>
 
 @interface DemoBrickViewCell : BrickViewCell
 
@@ -129,8 +129,8 @@
 	if(!cell) {
         cell  = [[DemoBrickViewCell alloc] initWithReuseIdentifier:CellIdentifier];
 	}
-    cell.textLabel.text = [NSString stringWithFormat:@"%d:%@",
-                           index,
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld:%@",
+                           (long)index,
                            self.list[index]];
     switch (index%3) {
         case 0: {
@@ -156,12 +156,12 @@
 #pragma mark -
 - (void)brickView:(BrickView *)brickView didSelectCell:(BrickViewCell *)cell AtIndex:(NSInteger)index
 {
-    NSLog(@"did select index %d", index);
+    NSLog(@"did select index %ld", (long)index);
 }
 
 - (void)brickView:(BrickView *)brickView didLongPressCell:(BrickViewCell *)cell AtIndex:(NSInteger)index
 {
-    NSLog(@"did long-press index %d", index);
+    NSLog(@"did long-press index %ld", (long)index);
     [self.list removeObjectAtIndex:index];
     [brickView reloadData];
 }
