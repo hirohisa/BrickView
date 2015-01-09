@@ -7,7 +7,7 @@
 //
 
 #import "DemoViewController.h"
-#import "BrickView.h"
+#import <BrickView/BrickView.h>
 
 @interface DemoBrickViewCell : BrickViewCell
 
