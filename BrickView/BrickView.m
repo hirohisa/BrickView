@@ -99,7 +99,8 @@
 @property (nonatomic, readonly) NSInteger numberOfCells;
 @property (nonatomic, strong) NSMutableArray *brickIndexPaths;
 @property (nonatomic, strong) NSMutableArray *visibleCells;
-@property (nonatomic, strong) NSMutableDictionary *reusableCells;
+@property (nonatomic, readonly) NSMutableDictionary *reusableCells;
+@property (nonatomic, readonly) NSMutableDictionary *nibs;
 @end
 
 @implementation BrickView
@@ -135,6 +136,18 @@
     self.alwaysBounceVertical = YES;
     [super setDelegate:self];
     _reusableCells = [@{} mutableCopy];
+    _nibs = [@{} mutableCopy];
+}
+
+#pragma mark - nib
+
+- (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier
+{
+    if (!identifier || !nib) {
+        return;
+    }
+
+    self.nibs[identifier] = nib;
 }
 
 #pragma mark - setter/getter
@@ -197,18 +210,22 @@
 
 - (id)dequeueReusableCellWithIdentifier:(NSString *)identifier
 {
-    if (identifier &&
-        self.reusableCells[identifier]) {
-        id cell = [self.reusableCells[identifier] lastObject];
+    BrickViewCell *cell;
+    if (identifier && self.reusableCells[identifier]) {
+        cell = [self.reusableCells[identifier] lastObject];
         [self.reusableCells[identifier] removeLastObject];
-
-        if ([cell respondsToSelector:@selector(prepareForReuse)]) {
-            [(BrickViewCell *)cell prepareForReuse];
-        }
-        return cell;
     }
 
-    return nil;
+    if (!cell && self.nibs[identifier]) {
+        UINib *nib = self.nibs[identifier];
+        cell = [[nib instantiateWithOwner:nil options:nil] lastObject];
+        cell.reuseIdentifier = identifier;
+    }
+
+    if ([cell respondsToSelector:@selector(prepareForReuse)]) {
+        [cell prepareForReuse];
+    }
+    return cell;
 }
 
 - (void)recycleCellIntoReusableQueue:(BrickViewCell *)cell
@@ -377,7 +394,10 @@
 {
     NSMutableArray *cells = [@[] mutableCopy];
     for (BrickIndexPath *indexPath in indexPaths) {
-        [cells addObject:[self cellAtIndexPath:indexPath]];
+        BrickViewCell *cell = [self cellAtIndexPath:indexPath];
+        if (cell) {
+            [cells addObject:cell];
+        }
     }
     return [cells copy];
 }
@@ -385,6 +405,10 @@
 - (BrickViewCell *)cellAtIndexPath:(BrickIndexPath *)indexPath
 {
     BrickViewCell *cell = [self.dataSource brickView:self cellAtIndex:indexPath.index];
+    if (!cell) {
+        return nil;
+    }
+
     cell.brickIndex = indexPath.index;
     cell.frame = indexPath.frame;
     [cell setNeedsLayout];

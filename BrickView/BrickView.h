@@ -60,4 +60,5 @@
 - (void)reloadData;
 - (void)updateData;// don't clear visibleCells to updateData
 
+- (void)registerNib:(UINib *)nib forCellReuseIdentifier:(NSString *)identifier;
 @end
