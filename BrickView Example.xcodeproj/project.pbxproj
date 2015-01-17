@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A125B1501A62440500250601 /* DemoBrickViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A125B14F1A62440500250601 /* DemoBrickViewCell.xib */; };
+		A125B1531A62468800250601 /* DemoBrickViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A125B1521A62468800250601 /* DemoBrickViewCell.m */; };
 		A19899431A5F5A2C00968B8B /* BrickView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A19899421A5F5A2C00968B8B /* BrickView.framework */; };
 		A1A43E8318AE36BA009F271B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8218AE36BA009F271B /* Foundation.framework */; };
 		A1A43E8518AE36BA009F271B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1A43E8418AE36BA009F271B /* CoreGraphics.framework */; };
@@ -19,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A125B14F1A62440500250601 /* DemoBrickViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoBrickViewCell.xib; sourceTree = "<group>"; };
+		A125B1511A62468800250601 /* DemoBrickViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoBrickViewCell.h; sourceTree = "<group>"; };
+		A125B1521A62468800250601 /* DemoBrickViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoBrickViewCell.m; sourceTree = "<group>"; };
 		A1443D7C1A5F56F20063F453 /* BrickView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrickView.framework; path = "build/Debug-iphoneos/BrickView.framework"; sourceTree = "<group>"; };
 		A19899421A5F5A2C00968B8B /* BrickView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrickView.framework; path = "build/Debug-iphoneos/BrickView.framework"; sourceTree = "<group>"; };
 		A1A43E7F18AE36BA009F271B /* BrickView Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BrickView Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +94,9 @@
 				A1A43E9218AE36BA009F271B /* AppDelegate.m */,
 				A1A43EB818AE393D009F271B /* DemoViewController.h */,
 				A1A43EB918AE393D009F271B /* DemoViewController.m */,
+				A125B1511A62468800250601 /* DemoBrickViewCell.h */,
+				A125B1521A62468800250601 /* DemoBrickViewCell.m */,
+				A125B14F1A62440500250601 /* DemoBrickViewCell.xib */,
 				A1A43E9418AE36BA009F271B /* Images.xcassets */,
 				A1A43E8918AE36BA009F271B /* Supporting Files */,
 			);
@@ -159,6 +167,7 @@
 			files = (
 				A1A43E8D18AE36BA009F271B /* InfoPlist.strings in Resources */,
 				A1A43E9518AE36BA009F271B /* Images.xcassets in Resources */,
+				A125B1501A62440500250601 /* DemoBrickViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1A43E9318AE36BA009F271B /* AppDelegate.m in Sources */,
+				A125B1531A62468800250601 /* DemoBrickViewCell.m in Sources */,
 				A1A43E8F18AE36BA009F271B /* main.m in Sources */,
 				A1A43EBA18AE393D009F271B /* DemoViewController.m in Sources */,
 			);

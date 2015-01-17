@@ -8,54 +8,20 @@
 
 #import "DemoViewController.h"
 #import <BrickView/BrickView.h>
+#import "DemoBrickViewCell.h"
 
-@interface DemoBrickViewCell : BrickViewCell
+@interface NSArray (Sample)
 
-@property (nonatomic, readonly) UILabel *textLabel;
-@property (nonatomic, readonly) UILabel *detailLabel;
++ (NSArray *)sampleArray;
 
 @end
 
-@implementation DemoBrickViewCell
+@implementation NSArray (Sample)
 
-- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier
++ (NSArray *)sampleArray
 {
-    self = [super initWithReuseIdentifier:reuseIdentifier];
-    if (self) {
-        _textLabel = [[UILabel alloc] init];
-        self.textLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:self.textLabel];
-        _detailLabel = [[UILabel alloc] init];
-        self.detailLabel.textAlignment = NSTextAlignmentCenter;
-        [self addSubview:self.detailLabel];
-    }
-    return self;
-}
-
-- (void)layoutSubviews
-{
-    [super layoutSubviews];
-    if (![self.detailLabel.text length]) {
-        self.textLabel.frame = (CGRect) {
-            .origin.x = 0.,
-            .origin.y = 0.,
-            .size.width = CGRectGetWidth(self.frame),
-            .size.height = CGRectGetHeight(self.frame)
-        };
-    } else {
-        self.textLabel.frame = (CGRect) {
-            .origin.x = 0.,
-            .origin.y = 0.,
-            .size.width = CGRectGetWidth(self.frame),
-            .size.height = CGRectGetHeight(self.frame) - 30,
-        };
-        self.detailLabel.frame = (CGRect) {
-            .origin.x = 0.,
-            .origin.y = CGRectGetMaxY(self.textLabel.frame) + 5,
-            .size.width = CGRectGetWidth(self.frame),
-            .size.height = 15,
-        };
-    }
+    return @[@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",
+             @"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z"];
 }
 
 @end
@@ -70,22 +36,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.brickView = [[BrickView alloc]initWithFrame:self.view.bounds];
+    [self setupBrickView];
+    [self registerNibs];
 
-    self.list = @[@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",
-                  @"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z"].mutableCopy;
+    self.list = [[NSArray sampleArray] mutableCopy];
+    [self.brickView reloadData];
+}
+
+- (void)setupBrickView
+{
+    self.brickView = [[BrickView alloc]initWithFrame:self.view.bounds];
+    self.brickView.dataSource = self;
+    self.brickView.delegate = self;
     self.brickView.padding = 10.;
-    UILabel *headerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 50)];
+    UILabel *headerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
     headerLabel.text = @"HEADER";
     headerLabel.textAlignment = NSTextAlignmentCenter;
     self.brickView.headerView = headerLabel;
-    UILabel *footerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 50)];
+    UILabel *footerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 50)];
     footerLabel.text = @"FOOTER";
     footerLabel.textAlignment = NSTextAlignmentCenter;
     self.brickView.footerView = footerLabel;
     [self.view addSubview:self.brickView];
-    self.brickView.dataSource = self;
-    self.brickView.delegate = self;
+}
+
+- (void)registerNibs
+{
+    UINib *nib = [UINib nibWithNibName:@"DemoBrickViewCell" bundle:nil];
+    [self.brickView registerNib:nib forCellReuseIdentifier:@"Cell"];
 }
 
 #pragma mark - accessor
@@ -124,14 +102,9 @@
 - (BrickViewCell *)brickView:(BrickView *)brickView cellAtIndex:(NSInteger)index
 {
     static NSString *CellIdentifier = @"Cell";
-	DemoBrickViewCell *cell = [brickView dequeueReusableCellWithIdentifier:CellIdentifier];
+    DemoBrickViewCell *cell = [brickView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-	if(!cell) {
-        cell  = [[DemoBrickViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-	}
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld:%@",
-                           (long)index,
-                           self.list[index]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld:%@", (long)index, self.list[index]];
     switch (index%3) {
         case 0: {
             cell.backgroundColor = [UIColor grayColor];
@@ -170,8 +143,7 @@
 {
     CGFloat bottomEdge = scrollView.contentOffset.y + CGRectGetHeight(scrollView.frame);
     if (bottomEdge >= floor(scrollView.contentSize.height)) {
-        [self.list addObjectsFromArray:@[@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",
-                                         @"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z"]];
+        [self.list addObjectsFromArray:[NSArray sampleArray]];
         [self.brickView updateData];
     }
 }

@@ -51,6 +51,7 @@ Example
 
 - import `BrickView.h`
 - implement `BrickViewDataSource` and `BrickViewDelegate`'s methods
+- register `UINib`'s object with idenfiter for re-use
 
 ### UIViewController
 
@@ -73,6 +74,10 @@ Example
     BrickView *brickView = [[BrickView alloc]initWithFrame:self.view.bounds];
     brickView.dataSource = self;
     brickView.delegate = self;
+
+    UINib *nib = [UINib nibWithNibName:@"Cell" bundle:nil];
+    [self.brickView registerNib:nib forCellReuseIdentifier:@"Cell"];
+    [self.brickView reloadData];
 }
 
 - (CGFloat)brickView:(BrickView *)brickView heightForCellAtIndex:(NSInteger)index
@@ -95,9 +100,6 @@ Example
     static NSString *CellIdentifier = @"Cell";
     BrickViewCell *cell = [brickView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    if(!cell) {
-        cell  = [[BrickViewCell alloc] initWithReuseIdentifier:CellIdentifier];
-    }
     cell.textLabel.text = @"text";
 
   return cell;
