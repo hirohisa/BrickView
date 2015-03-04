@@ -101,6 +101,7 @@
 @property (nonatomic, strong) NSMutableArray *visibleCells;
 @property (nonatomic, readonly) NSMutableDictionary *reusableCells;
 @property (nonatomic, readonly) NSMutableDictionary *nibs;
+@property (nonatomic, strong) dispatch_queue_t queue;
 @end
 
 @implementation BrickView
@@ -130,6 +131,7 @@
 
 - (void)brickView_configure
 {
+    self.queue = dispatch_queue_create("brickview.calculator", DISPATCH_QUEUE_CONCURRENT);
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
     self.clipsToBounds = NO;
