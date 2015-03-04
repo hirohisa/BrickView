@@ -2,8 +2,8 @@
 //  BrickIndexPath.h
 //  BrickView
 //
-//  Created by Hirohisa Kawasaki on 2014/04/16.
-//  Copyright (c) 2014年 Hirohisa Kawasaki. All rights reserved.
+//  Created by Hirohisa Kawasaki on 4/16/14.
+//  Copyright (c) 2014 Hirohisa Kawasaki. All rights reserved.
 //
 
 @import Foundation;
