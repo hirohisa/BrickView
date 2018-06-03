@@ -13,4 +13,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *textLabel;
 @property (nonatomic, weak) IBOutlet UILabel *detailLabel;
 
+- (void)setText:(NSString *)text detailText:(NSString *)detailText;
+
 @end

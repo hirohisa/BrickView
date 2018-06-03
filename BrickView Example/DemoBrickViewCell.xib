@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,44 +15,44 @@
             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IG-Sn-3oJ">
-                    <rect key="frame" x="20" y="121" width="160" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBE-tC-TVL">
-                    <rect key="frame" x="20" y="90" width="160" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ly-nW-eBE">
+                    <rect key="frame" x="55" y="74" width="90" height="52"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBE-tC-TVL">
+                            <rect key="frame" x="0.0" y="0.0" width="90" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8IG-Sn-3oJ">
+                            <rect key="frame" x="0.0" y="31" width="90" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="8IG-Sn-3oJ" secondAttribute="trailing" id="7Kn-fm-6Jl"/>
+                        <constraint firstItem="ZBE-tC-TVL" firstAttribute="leading" secondItem="7ly-nW-eBE" secondAttribute="leading" id="GoL-hE-QV8"/>
+                        <constraint firstItem="8IG-Sn-3oJ" firstAttribute="top" secondItem="ZBE-tC-TVL" secondAttribute="bottom" constant="10" id="HjC-n9-wez"/>
+                        <constraint firstAttribute="bottom" secondItem="8IG-Sn-3oJ" secondAttribute="bottom" id="J0b-DL-gCw"/>
+                        <constraint firstItem="8IG-Sn-3oJ" firstAttribute="leading" secondItem="7ly-nW-eBE" secondAttribute="leading" id="XNL-js-5jC"/>
+                        <constraint firstAttribute="trailing" secondItem="ZBE-tC-TVL" secondAttribute="trailing" id="gLg-OD-oOV"/>
+                        <constraint firstItem="ZBE-tC-TVL" firstAttribute="top" secondItem="7ly-nW-eBE" secondAttribute="top" id="hip-Cg-dYM"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="8IG-Sn-3oJ" firstAttribute="leading" secondItem="ZBE-tC-TVL" secondAttribute="leading" id="9QF-hq-ezW"/>
-                <constraint firstItem="8IG-Sn-3oJ" firstAttribute="trailing" secondItem="ZBE-tC-TVL" secondAttribute="trailing" id="C1s-Vi-ohF"/>
-                <constraint firstItem="8IG-Sn-3oJ" firstAttribute="top" secondItem="ZBE-tC-TVL" secondAttribute="bottom" constant="15" id="N6b-Oz-16F"/>
-                <constraint firstItem="ZBE-tC-TVL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="PJH-5v-sAm"/>
-                <constraint firstAttribute="centerY" secondItem="ZBE-tC-TVL" secondAttribute="centerY" id="TPB-BM-PIg"/>
-                <constraint firstItem="8IG-Sn-3oJ" firstAttribute="top" secondItem="ZBE-tC-TVL" secondAttribute="bottom" constant="10" id="UEb-4l-foh"/>
-                <constraint firstItem="ZBE-tC-TVL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="eVn-bh-IWY"/>
-                <constraint firstAttribute="centerY" secondItem="ZBE-tC-TVL" secondAttribute="centerY" constant="69.5" id="fEi-na-Jgu"/>
-                <constraint firstItem="ZBE-tC-TVL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="gbO-Vr-ysH"/>
-                <constraint firstAttribute="trailing" secondItem="ZBE-tC-TVL" secondAttribute="trailing" constant="20" id="nku-RO-IaM"/>
+                <constraint firstItem="7ly-nW-eBE" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="A1b-VI-joz"/>
+                <constraint firstItem="7ly-nW-eBE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OeD-rI-RAA"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="PJH-5v-sAm"/>
-                    <exclude reference="eVn-bh-IWY"/>
-                    <exclude reference="fEi-na-Jgu"/>
-                    <exclude reference="N6b-Oz-16F"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="detailLabel" destination="8IG-Sn-3oJ" id="Cbc-CJ-hFV"/>
                 <outlet property="textLabel" destination="ZBE-tC-TVL" id="yXR-Fe-JVE"/>
+                <outlet property="textLabelBottomConstraint" destination="HjC-n9-wez" id="E3a-73-1Hl"/>
             </connections>
             <point key="canvasLocation" x="108" y="303"/>
         </view>
