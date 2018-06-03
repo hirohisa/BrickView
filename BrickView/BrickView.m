@@ -58,6 +58,7 @@
 
 - (void)handleLongPress:(UIGestureRecognizer *)gesture {
     if (self.touching) {
+        self.touching = NO;
         [self.delegate didLongPressCell:self];
     }
 }
