@@ -18,8 +18,7 @@
 
 @implementation NSArray (Sample)
 
-+ (NSArray *)sampleArray
-{
++ (NSArray *)sampleArray {
     return @[@"a",@"b",@"c",@"d",@"e",@"f",@"g",@"h",@"i",@"j",@"k",@"l",@"m",
              @"n",@"o",@"p",@"q",@"r",@"s",@"t",@"u",@"v",@"w",@"x",@"y",@"z"];
 }
@@ -33,8 +32,7 @@
 
 @implementation DemoViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     [self setupBrickView];
     [self registerNibs];
@@ -43,8 +41,7 @@
     [self.brickView reloadData];
 }
 
-- (void)setupBrickView
-{
+- (void)setupBrickView {
     self.brickView = [[BrickView alloc]initWithFrame:self.view.bounds];
     self.brickView.dataSource = self;
     self.brickView.delegate = self;
@@ -60,16 +57,11 @@
     [self.view addSubview:self.brickView];
 }
 
-- (void)registerNibs
-{
-    UINib *nib = [UINib nibWithNibName:@"DemoBrickViewCell" bundle:nil];
-    [self.brickView registerNib:nib forCellReuseIdentifier:@"Cell"];
+- (void)registerNibs {
+    [self.brickView registerNib:[UINib nibWithNibName:@"DemoBrickViewCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
 }
 
-#pragma mark - accessor
-
-- (CGFloat)brickView:(BrickView *)brickView heightForCellAtIndex:(NSInteger)index
-{
+- (CGFloat)brickView:(BrickView *)brickView heightForCellAtIndex:(NSInteger)index {
     CGFloat height = 0.f;
     switch (index%3) {
         case 0: {
@@ -88,47 +80,42 @@
     return height;
 }
 
-- (NSInteger)numberOfColumnsInBrickView:(BrickView *)brickView
-{
+- (NSInteger)numberOfColumnsInBrickView:(BrickView *)brickView {
     return 3;
 }
 
 
-- (NSInteger)numberOfCellsInBrickView:(BrickView *)brickView
-{
+- (NSInteger)numberOfCellsInBrickView:(BrickView *)brickView {
     return [self.list count];
 }
 
-- (BrickViewCell *)brickView:(BrickView *)brickView cellAtIndex:(NSInteger)index
-{
+- (BrickViewCell *)brickView:(BrickView *)brickView cellAtIndex:(NSInteger)index {
     static NSString *CellIdentifier = @"Cell";
     DemoBrickViewCell *cell = [brickView dequeueReusableCellWithIdentifier:CellIdentifier];
 
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld:%@", (long)index, self.list[index]];
+    NSString *text = [NSString stringWithFormat:@"%ld:%@", (long)index, self.list[index]];
+    NSString *detailText = nil;
     switch (index%3) {
         case 0: {
-            cell.backgroundColor = [UIColor grayColor];
-            cell.detailLabel.text = @"detail";
+            cell.backgroundColor = [UIColor colorWithRed:229.f/255.f green:231.f/255.f blue:233.f/255.f alpha:1.0];
+            detailText = @"detail";
         }
             break;
         case 1: {
-            cell.backgroundColor = [UIColor blueColor];
-            cell.detailLabel.text = nil;
+            cell.backgroundColor = [UIColor colorWithRed:214.f/255.f green:234.f/255.f blue:248.f/255.f alpha:1.0];
         }
             break;
         case 2: {
-            cell.backgroundColor = [UIColor purpleColor];
-            cell.detailLabel.text = nil;
+            cell.backgroundColor = [UIColor colorWithRed:215.f/255.f green:189.f/255.f blue:226.f/255.f alpha:1.0];
         }
             break;
     }
+    [cell setText:text detailText:detailText];
 
 	return cell;
 }
 
-#pragma mark -
-- (void)brickView:(BrickView *)brickView didSelectCell:(BrickViewCell *)cell AtIndex:(NSInteger)index
-{
+- (void)brickView:(BrickView *)brickView didSelectCell:(BrickViewCell *)cell AtIndex:(NSInteger)index {
     NSLog(@"did select index %ld", (long)index);
 }
 
